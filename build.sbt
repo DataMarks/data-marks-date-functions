@@ -1,4 +1,4 @@
-//import scala.util.Try
+import scala.util.Try
 lazy val `data-marks-date-functions` = project in file(".")
 organization :="org.datamarks"
 name := "data-marks-date-functions"
@@ -6,7 +6,7 @@ scalaVersion := "2.11.12"
 crossPaths := false
 publishArtifact in (Compile, packageDoc) := false
 publishArtifact in (Compile, packageSrc) := false
-/*
+
 lazy val pwd =  Try(scala.sys.env("ARTIFACTORY_PASSWORD")).getOrElse("")
 lazy val usr =  Try(scala.sys.env("ARTIFACTORY_USERNAME")).getOrElse("")
 lazy val credentialsPath = Path.userHome / ".sbt" / ".credentials"
@@ -19,7 +19,7 @@ publishTo := {
   if (isSnapshot.value) Some("snapshots" at  "https://artifactory.sicredi.io/artifactory/snapshots/")
   else   Some("releases"  at  "https://artifactory.sicredi.io/artifactory/releases/")
 }
-*/
+
 libraryDependencies ++= Seq(
   "org.slf4j"          		  % "slf4j-api"                % "1.7.5",
   "org.slf4j"          		  % "slf4j-log4j12"            % "1.7.5",
