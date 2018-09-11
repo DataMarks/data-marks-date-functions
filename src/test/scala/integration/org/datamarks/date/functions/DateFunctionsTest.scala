@@ -8,6 +8,7 @@ class DateFunctionsTest extends UnitSpec {
   private val timestampFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
   private val simpleDateFormat = "yyyy-MM-dd"
   private val defaultTimestamp = 1525748400000L
+  private val defaultSaoPauloTimeStamp = 1525755780000L
 
   "An Empty Data" must "be none" in {
     val actual : Option[Timestamp] = DateFunctions.toTimestampFormatted("","")
@@ -33,4 +34,12 @@ class DateFunctionsTest extends UnitSpec {
     val expected : Option[Timestamp] = Option(new Timestamp(defaultTimestamp))
     assert(expected===actual)
   }
+
+  s"2018-05-08 with pattern ${timestampFormat}" should s"be ${defaultSaoPauloTimeStamp} from utc to SP " in {
+    val actual : Option[Timestamp] = DateFunctions.toTimestampFormattedWithLocalZone("2018-05-08T05:03:00.000Z",timestampFormat)
+    val time = new Timestamp(defaultSaoPauloTimeStamp)
+    val expected : Option[Timestamp] = Option(time)
+    assert(expected===actual)
+  }
+
 }
